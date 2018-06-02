@@ -7,7 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		919274E820C3282C00BB5D13 /* main.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 919274E720C3282C00BB5D13 /* main.cpp */; };
+		919274E820C3282C00BB5D13 /* dinos.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 919274E720C3282C00BB5D13 /* dinos.cpp */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -24,7 +24,7 @@
 
 /* Begin PBXFileReference section */
 		919274E420C3282C00BB5D13 /* Project 7 */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = "Project 7"; sourceTree = BUILT_PRODUCTS_DIR; };
-		919274E720C3282C00BB5D13 /* main.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = main.cpp; sourceTree = "<group>"; };
+		919274E720C3282C00BB5D13 /* dinos.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = dinos.cpp; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -57,7 +57,7 @@
 		919274E620C3282C00BB5D13 /* Project 7 */ = {
 			isa = PBXGroup;
 			children = (
-				919274E720C3282C00BB5D13 /* main.cpp */,
+				919274E720C3282C00BB5D13 /* dinos.cpp */,
 			);
 			path = "Project 7";
 			sourceTree = "<group>";
@@ -118,7 +118,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				919274E820C3282C00BB5D13 /* main.cpp in Sources */,
+				919274E820C3282C00BB5D13 /* dinos.cpp in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
