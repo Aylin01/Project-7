@@ -3,8 +3,7 @@
 // Portions you are to complete are marked with a TODO: comment.
 // We've provided some incorrect return statements (so indicated) just
 // to allow this skeleton program to compile and run, albeit incorrectly.
-// The first thing you probably want to do is implement the trivial
-// functions (marked TRIVIAL).  Then get Valley::display going.  That gives
+// Then get Valley::display going.  That gives
 // you more flexibility in the order you tackle the rest of the functionality.
 // As you finish implementing each TODO: item, remove its TODO: comment.
 
@@ -161,8 +160,7 @@ int Dinosaur::row() const
 
 int Dinosaur::col() const
 {
-    // TODO: TRIVIAL:  Return the number of the column the Dinosaur is at.
-    return 1;  // Replace this incorrect line with the correct code.
+    return m_col;
 }
 
 void Dinosaur::move()
@@ -207,20 +205,17 @@ Player::Player(Valley* vp, int r, int c)
 
 int Player::row() const
 {
-    // TODO: TRIVIAL:  Return the number of the row the player is at.
-    return 1;  // Replace this incorrect line with the correct code.
+    return m_row;
 }
 
 int Player::col() const
 {
-    // TODO: TRIVIAL:  Return the number of the column the player is at.
-    return 1;  // Replace this incorrect line with the correct code.
+    return m_col;
 }
 
 int Player::age() const
 {
-    // TODO: TRIVIAL:  Return the player's age.
-    return 0;  // Replace this incorrect line with the correct code.
+    return m_age;
 }
 
 void Player::stand()
@@ -259,8 +254,7 @@ bool Player::shoot(int dir)
 
 bool Player::isDead() const
 {
-    // TODO: TRIVIAL:  Return whether the player is dead.
-    return false;  // Replace this incorrect line with the correct code.
+    return m_dead;
 }
 
 void Player::setDead()
@@ -293,14 +287,12 @@ Valley::~Valley()
 
 int Valley::rows() const
 {
-    // TODO: TRIVIAL:  Return the number of rows in the valley.
-    return 1;  // Replace this incorrect line with the correct code.
+    return m_rows;
 }
 
 int Valley::cols() const
 {
-    // TODO: TRIVIAL:  Return the number of columns in the valley.
-    return 1;  // Replace this incorrect line with the correct code.
+    return m_cols;
 }
 
 Player* Valley::player() const
@@ -332,9 +324,37 @@ void Valley::display(string msg) const
             grid[r][c] = '.';
     
     // Indicate each dinosaur's position
-    // TODO:  If one dinosaur is at some position, set the char to 'D'.
-    //        If it's 2 through 8, set it to '2' through '8'.
-    //        For 9 or more, set it to '9'.
+    if (numDinosaursAt( r, c) != 0)
+    {
+        if( numDinosaursAt(r, c) == 1 )
+        {
+            char& gridChar = grid[m_dinos[MAXDINOSAURS]->row() - 1][m_dinos[MAXDINOSAURS]->col() - 1];
+            if (gridChar == '.')
+                gridChar = 'D';
+            else
+                gridChar = '*';
+        }
+        if ( numDinosaursAt(r, c) > 1 && numDinosaursAt(r, c) < 9)
+        {
+            int j = numDinosaursAt(r, c);
+            char& gridChar = grid[m_dinos[MAXDINOSAURS]->row() - 1][m_dinos[MAXDINOSAURS]->col() - 1];
+            if (gridChar == '.')
+                gridChar = j;
+            else
+                gridChar = '*';
+        }
+        if ( numDinosaursAt(r, c) >= 9)
+        {
+            char& gridChar = grid[m_dinos[MAXDINOSAURS]->row() - 1][m_dinos[MAXDINOSAURS]->col() - 1];
+            if (gridChar == '.')
+                gridChar = '9';
+            else
+                gridChar = '*';
+        }
+        
+    
+    
+    }
     
     // Indicate player's position
     if (m_player != nullptr)
