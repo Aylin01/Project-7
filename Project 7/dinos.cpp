@@ -308,7 +308,7 @@ int Valley::dinosaurCount() const
 int Valley::numDinosaursAt(int r, int c) const
 {
     // TODO:  Return the number of dinosaurs at row r, column c.
-    return 0;  // Replace this incorrect line with the correct code.
+    return m_nDinos;  // Potential answer --> is this the right code?
 }
 
 void Valley::display(string msg) const
@@ -351,9 +351,6 @@ void Valley::display(string msg) const
             else
                 gridChar = '*';
         }
-        
-    
-    
     }
     
     // Indicate player's position
@@ -396,12 +393,15 @@ void Valley::display(string msg) const
 
 bool Valley::addDinosaur(int r, int c)
 {
-    // If MAXDINOSAURS have already been added, return false.  Otherwise,
-    // dynamically allocate a new dinosaur at coordinates (r,c).  Save the
-    // pointer to the newly allocated dinosaur and return true.
-    
-    // TODO:  Implement this
-    return false;  // Replace this incorrect line with the correct code.
+    // If MAXDINOSAURS have already been added, return false.
+    if (dinosaurCount() > MAXDINOSAURS)
+        return false;
+    //Dynamically add a dinosaur otherwise
+    for ( int k = 0; k < MAXDINOSAURS; k++)
+    {
+        m_dinos[k] = new Dinosaur(this, r, c);
+    }
+    return true;
 }
 
 bool Valley::addPlayer(int r, int c)
@@ -584,7 +584,7 @@ int main()
 {
     // Create a game
     // Use this instead to create a mini-game:   Game g(3, 3, 2);
-    Game g(15, 18, 100);
+    Game g(3, 3, 1);
     
     // Play the game
     g.play();
